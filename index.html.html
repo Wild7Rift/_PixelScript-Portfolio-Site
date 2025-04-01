@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelScript Portfolio - Categories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .project {
+            transition: transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .project.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+    </style>
+    <link rel="website icon" type="png" href="C:\Users\Casper\Downloads\PixelScript.jpeg">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const projects = document.querySelectorAll(".project");
+            let delay = 0;
+            projects.forEach((project) => {
+                setTimeout(() => {
+                    project.classList.add("show");
+                }, delay);
+                delay += 150;
+            });
+
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const isDarkMode = document.documentElement.classList.contains('dark');
+                    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                    updateThemeIcon(isDarkMode);
+                });
+            }
+
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let isDarkMode = false;
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                isDarkMode = true;
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            updateThemeIcon(isDarkMode);
+
+        });
+
+        function updateThemeIcon(isDarkMode) {
+            const themeToggle = document.getElementById('theme-toggle');
+            if(themeToggle) {
+                const sunIcon = themeToggle.querySelector('.sun-icon');
+                const moonIcon = themeToggle.querySelector('.moon-icon');
+                if (isDarkMode) {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'LucideIcons';
+            src: url(https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf) format('truetype');
+        }
+        .lucide-icon {
+            font-family: 'LucideIcons';
+            font-size: 1.2rem;
+            line-height: 1;
+            display: inline-block;
+            font-style: normal;
+            font-weight: normal;
+            speak: none;
+            text-decoration: inherit;
+            text-transform: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <header class="bg-white dark:bg-gray-800 text-center py-6 shadow-md relative">
+        <h1 class="text-3xl font-bold mb-1 text-gray-800 dark:text-white">PixelScript Portfolio</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300">Software Developer & Game Designer</p>
+    </header>
+    <header class="bg-white dark:bg-gray-800 text-center py-5 shadow-md relative">
+        <div class="absolute top-4 left-4 flex items-center">
+            <img src="https://img.icons8.com/?size=100&id=19318&format=png&color=000000" alt="http://www.youtube.com/@_PixelScript" class="h-8 w-8 mr-2">
+            <a href="http://www.youtube.com/@_PixelScript" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                <span class="lucide-icon" style="font-size: 1.2em;"></span> YouTube
+            </a>
+            <div class="ml-4 flex items-center">
+                <img src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000" alt="https://x.com/Wild7Rift?t=nbUAytCut4ykPUPVPx4GRA&s=09" class="h-8 w-8 mr-2">
+                <a href="https://x.com/Wild7Rift?t=nbUAytCut4ykPUPVPx4GRA&s=09" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                    <span class="lucide-icon" style="font-size: 1.2em;"></span> Twitter
+                </a>
+            </div>
+            <div class="ml-4 flex items-center">
+                <img src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000" alt="https://www.instagram.com/_pixelscript/#" class="h-8 w-8 mr-2">
+                <a href="https://www.instagram.com/_pixelscript/#" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                    <span class="lucide-icon" style="font-size: 1.2em;"></span> Instagram
+                </a>
+            </div>
+            <div class="ml-4 flex items-center">
+                <img src="https://img.icons8.com/?size=100&id=13655&format=png&color=000000" alt="https://www.behance.net/muhammeyldr18" class="h-8 w-8 mr-2">
+                <a href="https://www.behance.net/muhammeyldr18" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                    <span class="lucide-icon" style="font-size: 1.2em;"></span> Behance
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container max-w-4xl mx-auto px-4 py-8">
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4 border-b-2 border-indigo-500 dark:border-indigo-400 pb-2 text-gray-800 dark:text-white">About Me</h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+
+Hello! I am _PixelScript [Muhammet Ali Yıldırım], a developer and designer who creates projects at the intersection of creativity and technology. I develop a wide range of projects, from pushing the boundaries of music with artificial intelligence to building virtual worlds with 3D modeling and creating fun experiences with game development.
+<br><br>
+My Projects:
+<br><br>
+Artificial Intelligence Music: I create original musical compositions using artificial intelligence algorithms. These projects offer an exciting perspective on the future of music.
+<br><br>
+3D Modeling: I showcase my talents in 3D modeling by designing virtual environments, characters and objects. I use these models for games, animations and virtual reality applications.
+<br><br>
+Game Development: My passion for game development has led me to produce projects in different game genres. I constantly improve myself in game coding, game design and game mechanics.
+<br><br>
+Web Development: I create user-friendly and aesthetic websites by producing projects in both web coding and web design fields. These projects combine my mastery of web technologies and my design skills.
+In every project, I focus on achieving unique and impressive results using innovative approaches and the latest technologies. My passion for continuous learning and self-improvement always leads me to new and exciting projects.
+<br><br>
+You can learn more about my projects and contact me on this portfolio site.
+            </p>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-indigo-500 dark:border-indigo-400 pb-2 text-gray-800 dark:text-white">Game Development</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Speed Hunter</h3>
+                    <p class="text-gray-600 dark:text-gray-400">High quality cross-platform illegal street racing game. (Development is still ongoing, I will share the developments here in the coming times.)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-indigo-500 dark:border-indigo-400 pb-2 text-gray-800 dark:text-white">AI Music</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Dead Man's House</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        "Dead Man's House" is a gothic rock/dark wave song with a dark, mysterious, and gothic atmosphere, telling the story of an abandoned haunted house, woven with melodic, melancholic vocals, gloomy guitar riffs, and atmospheric synth sounds. It deals with themes of death, loneliness, and the ghosts of the past.
+                    </p>
+                    <a href="https://youtu.be/r5iFxxArlBc" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        Listen to Music <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Take Control</h3>
+                    <p class="text-gray-600 dark:text-gray-400">"Take Control" is an energetic and assertive pop-rock song. It stands out with powerful vocals, catchy guitar riffs, and dynamic drum rhythms. The lyrics of the song deal with themes of self-confidence, independence, and taking control of life.
+                    </p>
+                    <a href="https://youtu.be/TPjYSdyMTgc" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        Listen to Music <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Kill Code</h3>
+                    <p class="text-gray-600 dark:text-gray-400">"Kill Code" is a fast-paced, intense, and aggressive electronic music track. With a dystopian atmosphere, the song is woven with harsh synth sounds, industrial rhythms, and dark vocals. The lyrics of the song deal with themes such as technology, control, and rebellion.
+                    </p>
+                    <a href="https://youtu.be/BnJezgDVmMU" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        Listen to Music <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Cyberdex</h3>
+                    <p class="text-gray-600 dark:text-gray-400">"Cyberdex" is a futuristic and energetic electronic music track. It stands out with intense synth sounds, fast rhythms, and dynamic bass lines. With a cyberpunk atmosphere, the song takes the listener on a technological journey.
+                    </p>
+                    <a href="https://youtu.be/G_ysdrIJFrU" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        Listen to Music <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Bad Shot</h3>
+                    <p class="text-gray-600 dark:text-gray-400">"Bad Shot" is a slow-paced song with a melancholic and sad atmosphere. It is supported by emotional vocals, acoustic guitar, and piano. The lyrics of the song deal with themes such as disappointment, loss, and regret.
+                    </p>
+                    <a href="https://youtu.be/k6RHztR0E7k" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        Listen to Music <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">This Is The Way</h3>
+                    <p class="text-gray-600 dark:text-gray-400">"This Is The Way" is a high-tempo electronic music track with an epic and powerful atmosphere. It is woven with intense synth sounds, striking drum rhythms, and epic melodies. The song, which deals with science fiction and adventure themes, takes the listener on an exciting journey.
+                    </p>
+                    <a href="https://youtu.be/_WnyMXDFw60" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        Listen to Music <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Edge Of Defiance</h3>
+                    <p class="text-gray-600 dark:text-gray-400">"Edge Of Defiance" is a rock/metalcore song that pushes the boundaries, rebellious and energetic. It stands out with harsh guitar riffs, powerful vocals, and intense drum rhythms. The lyrics of the song deal with themes of struggle, resistance, and hope.
+                    </p>
+                    <a href="https://youtu.be/cHwRm-1WYZc" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        Listen to Music <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-indigo-500 dark:border-indigo-400 pb-2 text-gray-800 dark:text-white">3D Modeling</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Ferrari LaFerrari</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Vehicle model prepared with Unreal Engine 5 and 3ds Max. (From in-game designs)</p>
+                    <a href="https://www.behance.net/gallery/222268257/Ferrari-LaFerrari-Model-%28In-Game-Design%29" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        View Project <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;">&#xe98c;</span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Lamborghini Aventador</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Vehicle model prepared with Unreal Engine 5 and Twinmotion. (From in-game designs)</p>
+                    <a href="https://www.behance.net/gallery/222722661/Lamborghini-Aventador-Model-%28In-game-model%29" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        View Project <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;">&#xe98c;</span> </a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-indigo-500 dark:border-indigo-400 pb-2 text-gray-800 dark:text-white">Web Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Listly</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Personal task organizer.</p>
+                    </div>
+                    <a href="https://wild7rift.github.io/Listly/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        View Project <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">ImaginAI</h3>
+                        <p class="text-gray-600 dark:text-gray-400">AI application that generates visuals from text descriptions.</p>
+                    </div>
+                    <a href="https://texttoimage-ai--_pixelscript.on.websim.ai/?v=10" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        View Project <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">Lingua AI</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Artificial Intelligence supported translation application.</p>
+                    <a href="https://lingua-ai-intelligent-translation--_pixelscript.on.websim.ai/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        View Project <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">AI Companion</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Artificial Intelligence supported chat bot.</p>
+                    <a href="https://ai-chatbot--_pixelscript.on.websim.ai/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        View Project <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+                <div class="project bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">AI Stock Market Predictor (Beta)</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Artificial intelligence bot that predicts stock value.</p>
+                    <a href="https://ai-stock-market-predictor--_pixelscript.on.websim.ai/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block self-start">
+                        View Project <span class="lucide-icon" style="font-size: 0.9em; vertical-align: middle;"></span> </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="bg-white dark:bg-gray-800 text-center py-4 mt-12 shadow-inner">
+        <p class="text-sm text-gray-600 dark:text-gray-400">© 2025 PixelScript. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
